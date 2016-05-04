@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Document</title>
+
+  </head>
+  <body>
+    <div id='container'>
+      {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+      <form action='/process' method='post'>
+      <p>Name<input type="text" name="name"></input></p>
+      <p>Dojo Location:
+        <select name='location'>
+          <option value='Portland, OR'>Portland, OR</option>
+          <option value='Seattle, WA'>Seattle, WA</option>
+          <option value='Chicago, IL'>Chicago, IL</option>
+          <option value='Dallas, TX'>Dallas, TX</option>
+        </select></p>
+      <p>Favorite Language
+        <select name='language'>
+          <option value='Rail'>Rail</option>
+          <option value='Ruby'>Ruby</option>
+          <option value='Python'>Python</option>
+          <option value='PHP'>PHP</option>
+        </select></p>
+      <p>Comment (optional)</p>
+      <textarea name="comment" rows="4" cols="50"></textarea>
+      <br>
+      <input class ="button" type="submit" value="Submit">
+      </form>
+    </div>
+
+  </body>
+</html>
